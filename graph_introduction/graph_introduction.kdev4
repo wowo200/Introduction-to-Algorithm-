@@ -1,3 +1,4 @@
 [Project]
-Name=graph_introduction
+CreatedFrom=CMakeLists.txt
 Manager=KDevCMakeManager
+Name=graph_introduction
