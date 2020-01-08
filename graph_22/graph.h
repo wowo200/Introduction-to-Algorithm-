@@ -206,7 +206,18 @@ static void StrongConnectedComponent(GRAPH& g, NODE* nodes, int num, std::vector
 }
 ///////////////////////////////////////////////
 //最小生成树////////////////////////////////
-// kruskal 每次选择最小边
+/*
+GENERIC-MST(G, w)
+1. A = empty
+2. while A does not form a spanning tree
+3.    find an edge (u,v) that is safe for A
+4.    A = A + (u,v)
+5. return A
+
+kruskal prim 的技巧在于选择安全边
+*/
+
+// kruskal 选择安全边 的办法是：在所有连接森林中，两颗不同树的里面，找到权重最小的（u，v）。
 
 void MST_KRUSKAL(GRAPH& g, NODE* nodes, int num, std::vector<std::pair<int, int>> A) {
 	std::set<int> trees;
