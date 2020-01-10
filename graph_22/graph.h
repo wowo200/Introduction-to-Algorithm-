@@ -156,8 +156,8 @@ static void TOPOLOGY_SORT(GRAPH& g, NODE* nodes, int num, std::vector<int>& idx)
 
 
 
-// Ç¿Á¬Í¨·ÖÁ¿
-// ÔÚGÖĞ¿ÉÁªÍ¨µÄÇ¿Á¬Í¨·ÖÁ¿£¬ÔÚG^TÖĞÈÔÈ»ÊÇÇ¿Á¬Í¨·ÖÁ¿,´Ó×î´óµÄf¿ªÊ¼±éÀúÊÇÎªÕÒµ½×î´óµÄÁªÍ¨
+// å¼ºè¿é€šåˆ†é‡
+// åœ¨Gä¸­å¯è”é€šçš„å¼ºè¿é€šåˆ†é‡ï¼Œåœ¨G^Tä¸­ä»ç„¶æ˜¯å¼ºè¿é€šåˆ†é‡,ä»æœ€å¤§çš„få¼€å§‹éå†æ˜¯ä¸ºæ‰¾åˆ°æœ€å¤§çš„è”é€š
 
 static void DFS_CUR_CONN(GRAPH& g, NODE* nodes, std::vector<int>& topo_order, int s, std::vector<int>& conn_v) {
 	conn_v.push_back(s);
@@ -172,14 +172,14 @@ static void DFS_CUR_CONN(GRAPH& g, NODE* nodes, std::vector<int>& topo_order, in
 	nodes[s].m_color = COLOR::BLACK;
 }
 /*
-Ç¿Á¬Í¨·ÖÁ¿£º 
-1¡¢ ¹¹½¨ÍØÆËÅÅĞò£¨ÉîËÑ£©£»µÚÒ»¸ö·ÃÎÊµÄ£¬Àë¿ª´Ë½ÚµãµÄ±àºÅ>ËùÓĞÒÀÀµ´Ë½ÚµãµÄ±àºÅ
-2¡¢ Çå³ıËùÓĞµÄ×´Ì¬±êÖ¾Î»£¬²¢×ªÖÃÍ¼£¨Í¼µÄÁ¬½Ó·½Ïò·´×ª£©
-3¡¢ ÔÙ´Î£¬¶Ô×ªÖÃÍ¼ÉîËÑ£¬ÓÅÏÈ¿¼ÂÇÍØÆËÅÅĞò±àºÅ´óµÄ½Úµã£¬°´ÕÕÍØÆËÅÅĞò£¨Àë¿ª½ÚµãÊ±µÄ±àºÅ£©£¨´ÓÄ³¸ö½Úµã>µ½Ëü×îÉîµÄÒÀÀµ½Úµã£©½øĞĞÉîËÑ£¬
-ÕÒµ½µÄËùÓĞµÄÁ¬Í¨µÄ½Úµã¼´ÎªÁ¬Í¨·ÖÁ¿¡£
-ÎªÊ²Ã´¿ÉĞĞ£º
-	ÍØÆËÅÅĞò£ºÕ¹Ê¾ÁË´ÓÒ»¸ö½Úµã¿ªÊ¼£¬µ½ËüÄÜ·ÃÎÊµÄËùÓĞ½ÚµãµÄË³Ğò¡£¶ÔÍ¼×ªÖÃ£¬´ËÊ±Í¼µÄÁ¬½Ó·½Ïò·´×ª£¬ÈôÕâ¸öÊ±ºòÈÔÈ»ÄÜ¹»·ÃÎÊµ½Î´×ªÖÃÇ°µÄ½Úµã£¬
-	ËµÃ÷ÆğÊ¼µãÓëµ±Ç°½Úµã´æÔÚË«ÏòµÄÁ¬Í¨µÄ£¬Òò´Ë·ÃÎÊµ½µÄµã¶¼ÊÇÁ¬Í¨·ÖÁ¿
+å¼ºè¿é€šåˆ†é‡ï¼š 
+1ã€ æ„å»ºæ‹“æ‰‘æ’åºï¼ˆæ·±æœï¼‰ï¼›ç¬¬ä¸€ä¸ªè®¿é—®çš„ï¼Œç¦»å¼€æ­¤èŠ‚ç‚¹çš„ç¼–å·>æ‰€æœ‰ä¾èµ–æ­¤èŠ‚ç‚¹çš„ç¼–å·
+2ã€ æ¸…é™¤æ‰€æœ‰çš„çŠ¶æ€æ ‡å¿—ä½ï¼Œå¹¶è½¬ç½®å›¾ï¼ˆå›¾çš„è¿æ¥æ–¹å‘åè½¬ï¼‰
+3ã€ å†æ¬¡ï¼Œå¯¹è½¬ç½®å›¾æ·±æœï¼Œä¼˜å…ˆè€ƒè™‘æ‹“æ‰‘æ’åºç¼–å·å¤§çš„èŠ‚ç‚¹ï¼ŒæŒ‰ç…§æ‹“æ‰‘æ’åºï¼ˆç¦»å¼€èŠ‚ç‚¹æ—¶çš„ç¼–å·ï¼‰ï¼ˆä»æŸä¸ªèŠ‚ç‚¹>åˆ°å®ƒæœ€æ·±çš„ä¾èµ–èŠ‚ç‚¹ï¼‰è¿›è¡Œæ·±æœï¼Œ
+æ‰¾åˆ°çš„æ‰€æœ‰çš„è¿é€šçš„èŠ‚ç‚¹å³ä¸ºè¿é€šåˆ†é‡ã€‚
+ä¸ºä»€ä¹ˆå¯è¡Œï¼š
+	æ‹“æ‰‘æ’åºï¼šå±•ç¤ºäº†ä»ä¸€ä¸ªèŠ‚ç‚¹å¼€å§‹ï¼Œåˆ°å®ƒèƒ½è®¿é—®çš„æ‰€æœ‰èŠ‚ç‚¹çš„é¡ºåºã€‚å¯¹å›¾è½¬ç½®ï¼Œæ­¤æ—¶å›¾çš„è¿æ¥æ–¹å‘åè½¬ï¼Œè‹¥è¿™ä¸ªæ—¶å€™ä»ç„¶èƒ½å¤Ÿè®¿é—®åˆ°æœªè½¬ç½®å‰çš„èŠ‚ç‚¹ï¼Œ
+	è¯´æ˜èµ·å§‹ç‚¹ä¸å½“å‰èŠ‚ç‚¹å­˜åœ¨åŒå‘çš„è¿é€šçš„ï¼Œå› æ­¤è®¿é—®åˆ°çš„ç‚¹éƒ½æ˜¯è¿é€šåˆ†é‡
 */
 static void StrongConnectedComponent(GRAPH& g, NODE* nodes, int num, std::vector<std::vector<int>>& conn_comp) {
 	std::vector<int> idx;
@@ -205,7 +205,7 @@ static void StrongConnectedComponent(GRAPH& g, NODE* nodes, int num, std::vector
 	}
 }
 ///////////////////////////////////////////////
-//×îĞ¡Éú³ÉÊ÷////////////////////////////////
+//æœ€å°ç”Ÿæˆæ ‘////////////////////////////////
 /*
 GENERIC-MST(G, w)
 1. A = empty
@@ -214,18 +214,98 @@ GENERIC-MST(G, w)
 4.    A = A + (u,v)
 5. return A
 
-kruskal prim µÄ¼¼ÇÉÔÚÓÚÑ¡Ôñ°²È«±ß
+kruskal prim çš„æŠ€å·§åœ¨äºé€‰æ‹©å®‰å…¨è¾¹
 */
 
-// kruskal Ñ¡Ôñ°²È«±ß µÄ°ì·¨ÊÇ£ºÔÚËùÓĞÁ¬½ÓÉ­ÁÖÖĞ£¬Á½¿Å²»Í¬Ê÷µÄÀïÃæ£¬ÕÒµ½È¨ÖØ×îĞ¡µÄ£¨u£¬v£©¡£
+// kruskal é€‰æ‹©å®‰å…¨è¾¹ çš„åŠæ³•æ˜¯ï¼šåœ¨æ‰€æœ‰è¿æ¥æ£®æ—ä¸­ï¼Œä¸¤é¢—ä¸åŒæ ‘çš„é‡Œé¢ï¼Œæ‰¾åˆ°æƒé‡æœ€å°çš„ï¼ˆuï¼Œvï¼‰ã€‚
+// å¦‚æœè¿”å› falseï¼Œ åˆ™è¡¨ç¤ºæ— æ³•æ„æˆä¸€é¢—æ ‘
 
-void MST_KRUSKAL(GRAPH& g, NODE* nodes, int num, std::vector<std::pair<int, int>> A) {
-	std::set<int> trees;
+float MST_KRUSKAL(GRAPH& g, NODE* nodes, int num, std::vector<std::pair<int, int>>& A) {
+    A.clear();
+    struct W{
+        int i, j; // i -> j
+        float weight;
+        W(int _i, int _j, float _w):
+            i(_i), j(_j), weight(_w){}
+    };
+    struct cmp_W{
+        bool operator()(const W& w1, const W& w2){
+            return w1.weight < w2.weight;
+            
+        }
+    };
+    std::priority_queue<W, std::vector<W>, cmp_W> w_bt_trees;
+    std::vector<int> idx_trees;
 	for (int i = 0; i < num; i++) {
-		trees.insert(i);
+		idx_trees.push_back(i);
 	}
-
+	float sum = 0;
+    for(int i = 0; i < g.size(); i++)
+        for(int j = 0; j < g[i].size(); j++)
+            if(g[i][j] < INFINIETE)
+                w_bt_trees.push(W(i,j, g[i][j]));
+    while(idx_trees.size() > 1){
+        W edge = w_bt_trees.top();
+        if( idx_trees[edge.i] != idx_trees[edge.j] ){
+            int tmp_idx = edge.i;
+            // do union
+            while(idx_trees[tmp_idx] != tmp_idx)
+                tmp_idx = idx_trees[tmp_idx];
+            idx_trees[edge.j] = tmp_idx;
+            A.push_back(std::make_pair (edge.i, edge.j));
+            sum += edge.weight;
+        }
+        w_bt_trees.pop();
+    }
+    return sum;
 }
 
+
+// prim ç®—æ³•ä¿è¯é›†åˆAä¸­çš„è¾¹æ€»æ˜¯æ„æˆä¸€æ£µæ ‘ã€‚ è¿™æ£µæ ‘ä»ä»»æ„èŠ‚ç‚¹å¼€å§‹ï¼Œä¸€ç›´ç”Ÿé•¿åˆ°è¦†ç›–æ‰€æœ‰èŠ‚ç‚¹ä¸ºæ­¢ã€‚
+//      é€‰æ‹©å®‰å…¨è¾¹ï¼š é€‰æ‹©ä¸€æ¡é›†åˆAä¸­çš„ç»“ç‚¹å’Œé›†åˆAä¹‹å¤–çš„ç»“ç‚¹æ„æˆçš„è¾¹
+
+float MST_PRIM ( GRAPH& g, NODE* nodes, int num, std::vector<std::pair<int, int>>& A )
+{
+    A.clear();
+    float sum = 0;
+    std::set<int> _A_set;
+    _A_set.insert ( 0 );
+    struct W {
+        int i, j; // i is in A; j is not in A
+        float weight;
+        W ( int _i, int _j, float _w ) :
+            i ( _i ), j ( _j ), weight ( _w ) {}
+    };
+    struct cmp_W {
+        bool operator() ( const W& w1, const W& w2 )
+        {
+            return w1.weight < w2.weight;
+
+        }
+    };
+    std::priority_queue<W, std::vector<W>, cmp_W> _q;
+    for(int i = 0; i < g[0].size(); i++){
+        if(g[0][i] < INFINIETE)
+            _q.push(W(0, i, g[0][i]));
+    }
+    while ( !_q.empty() ) {
+        W edge = _q.top();
+        if( _A_set.find(edge.j) == _A_set.end()){
+            _A_set.insert(edge.j);
+            sum += edge.weight;
+            A.push_back( std::make_pair (edge.i, edge.j));
+            // å°†edge.jçš„ä¸´æ¥çŸ©é˜µæ’å…¥è¿›å»
+            for(int i = 0; i < g[edge.j].size(); i++){
+                if(_A_set.find(i) == _A_set.end())
+                    _q.push(W(edge.j, i, g[edge.j][i]));
+            }
+        }
+        _q.pop();
+    }
+}
+
+
+/**
+ * å•æºæœ€çŸ­è·¯å¾„
 
 #endif
